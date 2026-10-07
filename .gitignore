@@ -1,0 +1,175 @@
+# =====================================================================
+# PinGo (pingo-api) .gitignore
+# Regra de ouro: segredo, build e arquivo pessoal nunca entram no Git.
+# =====================================================================
+
+# --- Agente de IA / fluxo pessoal (privado) ---------------------------
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+
+# --- Segredos e configuração local ------------------------------------
+# Todo .env fica de fora, exceto o modelo sem valores reais.
+.env
+.env.*
+!.env.example
+*.env
+# Perfis e arquivos de configuração com credenciais
+application-local.yml
+application-local.yaml
+application-local.properties
+application-secret*.yml
+application-secret*.yaml
+application-secret*.properties
+application-secrets*
+*-local.yml
+*-local.yaml
+secrets/
+.secrets/
+# Chaves, certificados e keystores
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.csr
+# (se algum teste precisar de um certificado falso, versione com `git add -f` e comente o motivo)
+id_rsa*
+id_ed25519*
+# Credenciais de nuvem
+.aws/
+/credentials
+*.credentials
+
+# --- Java / Maven ------------------------------------------------------
+target/
+.mvn/timing.properties
+.mvn/.gradle-enterprise/
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# --- Gradle (caso o projeto mude de build tool) ------------------------
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# --- Spring Boot -------------------------------------------------------
+HELP.md
+spring-shell.log
+/logs/
+*.log
+*.log.*
+*.pid
+
+# --- Testes e cobertura ------------------------------------------------
+/coverage/
+jacoco*.exec
+/reports/
+surefire-reports/
+failsafe-reports/
+*.tmp
+
+# --- Docker / ambiente local ------------------------------------------
+# Dados persistidos pelos containers (Postgres, Redis, RabbitMQ, LocalStack, MinIO, Mailpit)
+/data/
+/volumes/
+/.docker/
+docker-compose.override.yml
+.localstack/
+localstack-data/
+.minio/
+.mailpit/
+
+# --- Terraform (a partir da Fase 6) -----------------------------------
+# O lock file (.terraform.lock.hcl) DEVE ser versionado, então não é ignorado.
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+!*.auto.tfvars.example
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+*.tfplan
+tfplan*
+
+# --- Node (ferramentas auxiliares, ex.: gerador de OpenAPI) -----------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# --- IDEs e editores ---------------------------------------------------
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+/out/
+# Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+/bin/
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+# VS Code
+.vscode/
+# Vim, Emacs e afins
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+
+# --- Sistema operacional ----------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# --- Backups e rascunhos pessoais --------------------------------------
+*.bak
+*.orig
+*.rej
+*.old
+scratch/
+tmp/
+.tmp/
+notes-private/
